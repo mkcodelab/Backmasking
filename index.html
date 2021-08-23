@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <title>Backmasking</title>
+  <style>
+    *, *::after, *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      overflow-x: hidden;
+    }
+    body {
+      position: relative;
+      background-color: #202;
+      color: white;
+      font-family: helvetica;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .bg {
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200vw;
+      height: 200vw;
+      background-image: linear-gradient(to right, #202, #704, rgb(79, 0, 124), #567);
+      transform-origin: center;
+      animation: rotate 15s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotateZ(0deg);
+      }
+      100% {
+        transform: rotatez(360deg);
+      }
+    }
+    .wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    h1 {
+      text-shadow: 1px 1px 10px violet;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .descr {
+      width: 30%;
+      color: rgba(255,255,255,.3);
+      text-align: justify;
+      margin-bottom: 4rem;
+    }
+    .hint {
+      color: rgba(255,255,255,.3);
+      width: 30%;
+      text-align: center;
+    }
+    .btn, .custom-file-label{
+      color: white;
+      margin: .2rem;
+      min-width: 20%;
+      padding: .4rem;
+      font-size: 1.5rem;
+      border:2px solid rgba(255,255,255, .3);
+      border-radius: 10px;
+      background: rgba(255,255,255, .2);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover, .custom-file-label:hover {
+      text-shadow: 1px 1px 10px violet;
+    }
+    input[type=file] {
+      /* opacity: 0; */
+      display: none;
+    }
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      opacity: .3;
+      font-size: .7rem;
+      text-align: center;
+    }
+   @media screen and (max-width: 600px) {
+    .descr {
+      width: 80%;
+    }
+    .hint {
+      width: 80%;
+    }
+    .btn, .custom-file-label {
+      min-width: 80%;
+    }
+    .bg {
+      width: 200vh;
+      height: 200vh;
+    }
+   }
+    
+    
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="wrap">
+    <h1>Backmasking</h1>
+    <p class="descr">Do you know the term backmasking? its a technique of hiding
+      secret messages, or meaning in songs.
+      It is simply a song played backwards.
+      But... it can contains secret messages inside.
+      For example, did you know that popular song titled "Stairway To Heaven" from Band Led Zeppelin
+      has some weird hidden meaning? It's hidden all over many many pieces.</p>
+    <p class="hint">After pressing Process, wait a sec. It can take some time</p>
+    <label class="custom-file-label" for="fileInput">Choose Audio File</label>
+    <input type="file" name="file" id="fileInput" accept="audio/*">
+    <button class="btn" id="process">Process</button>
+    <button class="btn" id="stop">Stop</button>
+  </div>
+  <footer>Created by MKCodelab &copy; All rights reserved</footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>
